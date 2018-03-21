@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "DataSet.hpp"
 
-double Op_Mean(DataSet& data) {
+RealValue Op_Mean(DataSet& data) {
 	double sum = 0.0;
 	for(auto d : data)
 		sum += d;
@@ -12,13 +12,13 @@ double Op_Mean(DataSet& data) {
 	return sum;
 }
 
-double Op_Median(DataSet& data) {
+RealValue Op_Median(DataSet& data) {
 	DataSet tmp = data;
 	std::sort(tmp.begin(), tmp.end());
 	return data[(data.size()+1)/2]; // take into account 0-indexing
 }
 
-double Op_Range(DataSet& data) {
+RealValue Op_Range(DataSet& data) {
 	double min__ = *std::min_element(std::begin(data), std::end(data));
 	double max__ = *std::max_element(std::begin(data), std::end(data));
 	return max__ - min__;

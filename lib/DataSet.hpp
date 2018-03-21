@@ -5,7 +5,8 @@
 #include <string>
 #include <vector>
 
-typedef std::vector<double> DataSet;
+typedef double RealValue
+typedef std::vector<RealValue> DataSet;
 
 struct ConfInterval {
 	double mean, range;
@@ -15,7 +16,7 @@ union MultiType {
 	ConfInterval conf_interval;
 };
 
-double RangeMap(double in, double in_min, double in_max, double out_min, double out_max) {
+RealValue RangeMap(double in, double in_min, double in_max, double out_min, double out_max) {
   return (in - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
