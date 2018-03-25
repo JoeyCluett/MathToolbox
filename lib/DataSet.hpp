@@ -26,7 +26,7 @@ typedef MaxMin un_MaxMin __attribute__((aligned(1)));
 struct MaxMin {
 	double min, max;
 
-	friend std::ostream& operator<<(std::ostream& os, const un_MaxMin& maxmin) { // ...
+	friend std::ostream& operator<<(std::ostream& os, const MaxMin& maxmin) { // ...
 		os << maxmin.min << " --> " << maxmin.max;
 		return os;
 	}
@@ -36,7 +36,7 @@ struct MaxMin {
 union MultiType {
 	ConfInterval conf_interval;
 	MaxMin max_min;
-} __attribute__((packed));
+};
 
 RealValue RangeMap(double in, double in_min, double in_max, double out_min, double out_max) {
   return (in - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
