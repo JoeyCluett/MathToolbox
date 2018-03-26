@@ -21,5 +21,7 @@ int main(int argc, char* argv[]) {
 	PrintInfo(F_PTR(__Shuffle));
 	PrintInfo(F_PTR(__Product));
 
+	cout << endl << TO_STR(ds) << endl;
+
 	return 0;
 }

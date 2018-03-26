@@ -9,24 +9,20 @@
 typedef double RealValue;
 typedef std::vector<RealValue> DataSet;
 
-struct ConfInterval; // forward decl
-typedef ConfInterval un_ConfInterval __attribute__((aligned(1)));
 struct ConfInterval {
 	double mean, range;
 
 	// easy to print out now
-	friend std::ostream& operator<<(std::ostream& os, const un_ConfInterval& ci) { // const aligned reference type
+	friend std::ostream& operator<<(std::ostream& os, const ConfInterval& ci) { // const aligned (packed) reference type
 		os << ci.mean << " +- " << ci.range;
 		return os;
 	}
 };
 
-struct MaxMin; // forward decl
-typedef MaxMin un_MaxMin __attribute__((aligned(1)));
 struct MaxMin {
 	double min, max;
 
-	friend std::ostream& operator<<(std::ostream& os, const un_MaxMin& maxmin) { // ...
+	friend std::ostream& operator<<(std::ostream& os, const MaxMin& maxmin) { // ...
 		os << maxmin.min << " --> " << maxmin.max;
 		return os;
 	}
