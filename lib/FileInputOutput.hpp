@@ -30,4 +30,17 @@ void WriteDataToFileBinary(DataSet& ds, const std::string& filename) {
 	std::cout << "done\n";
 }
 
+void PrintRealData(DataSet& ds) {
+	for(auto d : ds)
+		std::cout << d << ' ';
+	std::cout << std::endl;
+}
+
+void PrintRealData(DataSet& ds, std::string& data_name) {
+	std::cout << data_name << std::endl << "    ";
+	for(auto d : ds)
+		std::cout << d << ' ';
+	std::cout << std::endl;
+}
+
 #endif // __JJC__FILE__INPUT__OUTPUT__HPP__

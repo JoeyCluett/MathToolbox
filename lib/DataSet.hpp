@@ -26,7 +26,7 @@ typedef MaxMin un_MaxMin __attribute__((aligned(1)));
 struct MaxMin {
 	double min, max;
 
-	friend std::ostream& operator<<(std::ostream& os, const MaxMin& maxmin) { // ...
+	friend std::ostream& operator<<(std::ostream& os, const un_MaxMin& maxmin) { // ...
 		os << maxmin.min << " --> " << maxmin.max;
 		return os;
 	}
