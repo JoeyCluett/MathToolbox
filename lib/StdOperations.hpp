@@ -60,4 +60,19 @@ void __Clamp(DataSet& data, RealValue max, RealValue min) {
 
 }
 
+enum SortMethod {
+	SortMethod_Increasing,
+	SortMethod_Decreasing
+};
+
+void __Sort(DataSet& data, SortMethod sm) {
+	switch(sm) {
+		case SortMethod_Increasing:
+			std::sort(data.begin(), data.end());
+			return;
+		case SortMethod_Decreasing:
+			std::sort(data.begin(), data.end(), std::greater<double>());
+	}
+}
+
 #endif // __JJC__STD__OPERATIONS__H__
