@@ -82,4 +82,18 @@ void __Sort(DataSet& data, SortMethod sm) {
 	}
 }
 
+void __Fill(DataSet& data, int size, RealValue fill_value) {
+	data.clear();
+	for(int i = 0; i < size; i++)
+		data.push_back(fill_value);
+}
+
+void __Zeros(DataSet& data, int size) {
+	__Fill(data, size, 0.0);
+}
+
+void __Ones(DataSet& data, int size) {
+	__Fill(data, size, 1.0);
+}
+
 #endif // __JJC__STD__OPERATIONS__H__
