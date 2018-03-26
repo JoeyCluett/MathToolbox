@@ -5,10 +5,10 @@
 #include <fstream>
 #include <string>
 
-#include "lib/DataSet.hpp"
-#include "lib/StdOperations.hpp"
-#include "lib/StandardDeviation.hpp"
-#include "lib/ConfidenceInterval.hpp"
+#include <lib/DataSet.hpp>
+#include <lib/StdOperations.hpp>
+#include <lib/StandardDeviation.hpp>
+#include <lib/ConfidenceInterval.hpp>
 
 using namespace std; // for std::namespace, not StdOps/StdDev
 

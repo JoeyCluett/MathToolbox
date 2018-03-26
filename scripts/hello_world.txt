@@ -1,0 +1,9 @@
+arr    <= VECTOR -1 -> 2 inc 0.3
+pi     <= REAL 3.141459265
+stddev <= STD_DEV arr
+
+PRINT arr END
+SORT  arr DESCEND
+PRINT arr END
+
+

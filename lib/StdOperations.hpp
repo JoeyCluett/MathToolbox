@@ -2,6 +2,8 @@
 #define __JJC__STD__OPERATIONS__H__
 
 #include <algorithm>
+#include <random>
+#include <chrono>
 #include "DataSet.hpp"
 
 RealValue __Mean(DataSet& data) {
@@ -30,7 +32,7 @@ RealValue __Range(DataSet& data) {
 	return __Max(data) - __Min(data);
 }
 
-void __Magnitude(DataSet& data) {
+void __Magnitude(DataSet& data) { // abs() on every element
 	for(auto& d : data)
 		if(d < 0.0)
 			d *= -1.0;
@@ -58,6 +60,11 @@ void __Clamp(DataSet& data, RealValue max, RealValue min) {
 			d = max;
 	}
 
+}
+
+void __Shuffle(DataSet& data) {
+	auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+	std::shuffle(data.begin(), data.end(), std::default_random_engine(seed));
 }
 
 enum SortMethod {
