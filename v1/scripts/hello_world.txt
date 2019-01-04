@@ -1,0 +1,4 @@
+@! arr scalar !@
+arr    <=V -1 --> 2 += 0.5
+scalar <=R 3.14159265
+

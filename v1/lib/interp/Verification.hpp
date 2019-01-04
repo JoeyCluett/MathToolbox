@@ -4,10 +4,10 @@
 #include <lib/MathToolbox.hpp>
 
 const std::string keywords[] = 
-	{"VECTOR", "REAL", "STD_DEV", "PRINT", "SORT", "ASCEND", "DESCEND"};
+	{"@!", "!@", "<=V", "<=R". "-->", "+="};
 
 const char var_no_chars[] = 
-	{',', '.', ';', '/', '\\', '\'', '"'};
+	{',', '.', ';', '/', '\\', '\'', '"', '=', '+', '-'};
 
 bool verify_var_name(std::string& var) { // is this a valid variable name?
 	for(auto s : keywords)
@@ -15,7 +15,7 @@ bool verify_var_name(std::string& var) { // is this a valid variable name?
 			return false;
 
 	for(auto ch1 : var)
-		for(auto ch2 : var_no_chars)
+		for(auto ch2 : var_no_chars) // i think im in love
 			if(ch1 == ch2)
 				return false;
 

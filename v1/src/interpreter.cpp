@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
 	ifstream fis(filename, ios::in);
 	int current_state = State_StartExpression;
 
+	VariableMap vm;
+
 	StringCollection sc;
 	StringVec sv;
 	sc.setStringVec(sv);
@@ -25,7 +27,21 @@ int main(int argc, char* argv[]) {
 		sv.push_back(tmp);
 
 	while(ProgRunning) {
-		ProgRunning = main_state_parser(current_state, );
+		ProgRunning = main_state_parser(current_state, sc, vm); // state, StringCollection, VariableMap
+
+		// debug stuff
+		switch(current_state) {
+			case State_StartExpression:
+				cout << "State: StartExpression" << endl;
+				break;
+			case State_VariableDeclarationList:
+				cout << "State: VariableDeclarationList" << endl;
+				break;
+			default:
+				cout << "State: UNKNOWN" << endl;
+				break;
+		}
+
 	}
 
 	return 0;

@@ -13,6 +13,7 @@
 #include "StandardDeviation.hpp"
 #include "ConfidenceInterval.hpp"
 #include "Info.hpp"
+#include "Loans.hpp"
 
 #define NAMESPACE_RESOLUTION using namespace std
 
