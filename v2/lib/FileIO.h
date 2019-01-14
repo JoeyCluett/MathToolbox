@@ -5,7 +5,6 @@
 #include <string>
 #include <sstream>
 #include "TypeRedefinitions.h"
-#include "structures/Vector.h"
 
 // this holds references to data in 
 // a seperate string_matrix_t object

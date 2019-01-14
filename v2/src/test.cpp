@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-
+/*
     WaitForKeypress();
 
     real_set_t rs{1, 2, 3, 4, 5, 6};
@@ -35,18 +35,29 @@ int main(int argc, char* argv[]) {
     cout << "Matrix from file: \n" << rm << endl;
     cout << "Matrix access rm[2][2]: " << rm[2][2] << endl;
 
-    string_matrix_t sm;
-    IO::LoadCSV("testfiles/sample.csv", sm);
-    cout << "CSV file loaded" << endl;
+    //string_matrix_t sm;
+    //IO::LoadCSV("testfiles/sample.csv", sm);
+    //cout << "CSV file loaded" << endl;
 
     WaitForKeypress();
 
-    cout << "Contents:\n" << sm << endl;
-    auto state_code = sm.IndexOf(0, "statecode");
-    for(int i = 1; i < sm.size(); i++)
-        cout << sm[i][state_code] << ", ";
+    //cout << "Contents:\n" << sm << endl;
+    //auto state_code = sm.IndexOf(0, "statecode");
+    //for(int i = 1; i < sm.size(); i++)
+    //    cout << sm[i][state_code] << ", ";
 
     WaitForKeypress();
+*/
+    real_set_t new_set;
+    CreateRange(new_set, 100, 0.0, 3.14159265 * 3);
+    auto result = Eval(new_set, sin);
+    cout << result;
+
+    PlotWindow pwin;
+    PlotGridLines(pwin, new_set, result, 1.0, blue);
+    PlotPlain(pwin, new_set, result, red);
+
+    WaitForKeypress(pwin);
 
     return 0;
 }

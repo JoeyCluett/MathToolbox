@@ -3,7 +3,19 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdlib>
+#include <functional>
 #include "TypeRedefinitions.h"
+#include "plot/Util.h"
+
+real_set_t Eval(real_set_t& input, real_t(*m_callback)(real_t)) {
+	real_set_t output;
+	output.clear();
+
+	for(real_t d : input)
+		output.push_back(m_callback(d));
+
+	return output;
+}
 
 real_t Mean(real_set_t& rs) {
     real_t sum = 0.0;
@@ -121,4 +133,13 @@ void Scale(real_set_t& data, real_t r) {
 
 	for(auto& d : data)
 		d *= r;
+}
+
+void CreateRange(real_set_t& s, int num_elements, real_t start, real_t end) {
+	s.clear();
+	
+	for(int i = 0; i < num_elements; i++) {
+		real_t val = map_real(i, 0, (num_elements-1), start, end);
+		s.push_back(val);
+	}
 }
