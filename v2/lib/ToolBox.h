@@ -5,6 +5,7 @@
 #include "StandardDeviation.h"
 #include "ConfidenceInterval.h"
 #include "FileIO.h"
+#include "Derive.h"
 
 #include "plot/Core.h"
 #include "plot/Plot.h"

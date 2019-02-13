@@ -7,10 +7,25 @@
 #include <iostream>
 #include <vector>
 #include <complex>
+#include <functional>
+#include <assert.h>
 
 typedef double                 real_t;
-
 typedef std::vector<real_t>    real_set_t;
+
+// linear mapping function used frequently by other subsystems
+real_t map_real(
+        real_t input,
+        real_t input_start,  real_t input_end,
+        real_t output_start, real_t output_end) {
+
+    return output_start 
+            + ((output_end - output_start) 
+            / (input_end - input_start)) 
+            * (input - input_start);
+}
+
+
 std::ostream& operator<<(std::ostream& os, real_set_t& rs) {
     if(rs.size() > 0) {
         os << '[' << rs[0];
@@ -136,6 +151,42 @@ namespace SortMethod {
     const int decreasing = 1;
 }
 
+// used in deriving and integrating. this is an alternative to using real_set_t's. This object takes a std::function<>
+class NumericSequence {
+private:
+    size_t sz;
+    std::function<real_t(real_t)> f;
+    real_t min;
+    real_t max;
+
+public:
+    NumericSequence(size_t sz, real_t min, real_t max, std::function<real_t(real_t)> f) 
+            : sz(sz), f(f), min(min), max(max)
+    {
+        assert(min < max);
+        assert(sz > 1);
+    }
+
+    real_t operator[](int index) {
+        return f(map_real(index, 0, this->sz, this->min, this->max));
+    }
+
+    real_t at(int index) {
+        if(index < sz && index >= 0)
+            return (*this)[index];
+        throw std::runtime_error("NumericSequence::at() : index out of range");
+    }
+
+    // mostly just used by functions 
+    // that derive/integrate
+    real_t x_diff() {
+        return (this->max - this->min) / (real_t)sz;
+    }
+
+    size_t size(void) {
+        return this->sz;
+    }
+};
 
 void WaitForKeypress(void) {
 

@@ -69,7 +69,6 @@ void PlotPlain(PlotWindow& pwin, real_set_t& x_axis, real_set_t& y_axis, const m
     }
 
     pwin.update_screen();
-
 }
 
 

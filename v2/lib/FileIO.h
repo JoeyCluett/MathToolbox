@@ -173,7 +173,7 @@ namespace IO {
 
     }
 
-    real_t MakeReal(std::string str) {
+    inline real_t MakeReal(std::string str) {
         return std::stod(str);
     }
 
